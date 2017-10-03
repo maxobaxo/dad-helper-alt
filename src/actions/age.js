@@ -8,7 +8,8 @@ export const requestBabySkills = (age_range, localBabyId) => ({
   localBabyId
 })
 
-export const receiveAgeSubmit = () => {
+export const receiveAgeSubmit = (correctAgeObject) => {
+  type: c.RECEIVE_BABY_SKILLS
 
 }
 
@@ -21,7 +22,13 @@ export function getBabySkills(age_range, dispatch) {
       error => console.log('An error occured.', error)
     ).then(function(json) {
       console.log(json);
-      dispatch(receiveBabySkills());
+      let correctAgeObject;
+      json.forEach((ageRange) => {
+        if (ageRange.range === age_range) {
+          correctAgeObject = ageRange;
+        }
+      })
+      dispatch(receiveBabySkills(correctAgeObject));
     })
   }
 }
