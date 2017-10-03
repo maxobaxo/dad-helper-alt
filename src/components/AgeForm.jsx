@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { getBabySkills } from './../actions/age';
+import { connect } from 'react-redux';
 
 class AgeForm extends React.Component {
 
@@ -11,7 +13,9 @@ class AgeForm extends React.Component {
   handleAgeSubmit(event) {
     event.preventDefault();
 
-
+    const { _age } = this.refs;
+    const { dispatch } = this.props;
+    dispatch(getBabySkills(_age.value));
   }
 
   render() {
@@ -32,4 +36,4 @@ class AgeForm extends React.Component {
   }
 }
 
-export default AgeForm;
+export default connect()(AgeForm);
