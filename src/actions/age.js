@@ -8,9 +8,9 @@ export const requestBabySkills = (age_range, localBabyId) => ({
   localBabyId
 })
 
-export const receiveBabySkills = (correctAgeObject) => ({
+export const receiveBabySkills = (potentialSkills) => ({
   type: c.RECEIVE_BABY_SKILLS,
-  correctAgeObject
+  potentialSkills
 })
 
 export function getBabySkills(age_range, dispatch) {
@@ -21,14 +21,28 @@ export function getBabySkills(age_range, dispatch) {
       response => response.json(),
       error => console.log('An error occured.', error)
     ).then(function(json) {
-      console.log(json);
-      let correctAgeObject;
+      let skill_ids;
+      let skills = [];
       json.forEach((ageRange) => {
         if (ageRange.range === age_range) {
-          correctAgeObject = ageRange;
+          skill_ids = ageRange.skillIds;
         }
+      });
+
+      fetch('http://localhost:3000/skills').then(
+        response => response.json(),
+        error => console.log('An error occured.', error)
+      ).then(function(json) {
+        json.forEach((skill) => {
+          skill_ids.forEach((skill_id) => {
+            if (skill._id === skill_id) {
+              skills.push(skill.name);
+            }
+          })
+        })
       })
-      dispatch(receiveBabySkills(correctAgeObject));
+      console.log(skills);
+      dispatch(receiveBabySkills(skills));
     })
   }
 }

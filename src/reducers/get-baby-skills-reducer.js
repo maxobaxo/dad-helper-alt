@@ -9,11 +9,9 @@ export default (state = {}, action) => {
       }
       return newState;
     case 'RECEIVE_BABY_SKILLS':
-      const { range, skillIds } = action.correctAgeObject;
       newState = Object.assign({}, state, {
         isFetching: false,
-        age_range: range,
-        skill_ids: skillIds
+        potential_skills: action.potentialSkills
       });
       return newState;
     default:

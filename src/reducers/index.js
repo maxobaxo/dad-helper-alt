@@ -3,7 +3,7 @@ import getBabySkillsReducer from './get-baby-skills-reducer';
 
 
 const rootReducer = combineReducers({
-  'skills': getBabySkillsReducer
+  'babyInfo': getBabySkillsReducer
 });
 
 export default rootReducer;

@@ -13,7 +13,7 @@ class DadHelper extends React.Component {
     return(
       <div>
         <AgeFormControl />
-        <DisplaySkills />
+        <DisplaySkills babySkills={this.props.masterState.babyInfo.potential_skills}/>
       </div>
     )
   }
