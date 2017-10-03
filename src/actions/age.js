@@ -8,10 +8,10 @@ export const requestBabySkills = (age_range, localBabyId) => ({
   localBabyId
 })
 
-export const receiveAgeSubmit = (correctAgeObject) => {
-  type: c.RECEIVE_BABY_SKILLS
-
-}
+export const receiveBabySkills = (correctAgeObject) => ({
+  type: c.RECEIVE_BABY_SKILLS,
+  correctAgeObject
+})
 
 export function getBabySkills(age_range, dispatch) {
   const localBabyId = v4();
