@@ -1,0 +1,3 @@
+export default {
+  REQUEST_BABY_SKILLS: 'REQUEST_BABY_SKILLS'
+}
