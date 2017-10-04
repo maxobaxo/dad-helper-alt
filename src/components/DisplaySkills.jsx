@@ -2,10 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function DisplaySkills(props) {
-  console.log(props);
+
+  const skills = props.babySkills;
+  const skillItems = skills.map((skill, index) =>
+    <li key={index}>
+      {skill}
+    </li>
+  );
+
   return(
     <div>
-      {props.babySkills.map((skill) => <li>{skill}</li>)}
+      <h4>Potential Skills: </h4>
+      <ul>{skillItems}</ul>
     </div>
   )
 }

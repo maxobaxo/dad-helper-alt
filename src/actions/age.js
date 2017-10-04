@@ -40,9 +40,8 @@ export function getBabySkills(age_range, dispatch) {
             }
           })
         })
+        dispatch(receiveBabySkills(skills));
       })
-      console.log(skills);
-      dispatch(receiveBabySkills(skills));
     })
   }
 }
