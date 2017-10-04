@@ -1,15 +1,15 @@
-import c from './../constants';
+import * as types from './../constants/ActionTypes';
 import fetch from 'isomorphic-fetch';
 import { v4 } from 'uuid';
 
 export const requestBabySkills = (age_range, localBabyId) => ({
-  type: c.REQUEST_BABY_SKILLS,
+  type: types.REQUEST_BABY_SKILLS,
   age_range,
   localBabyId
 })
 
 export const receiveBabySkills = (potentialSkills) => ({
-  type: c.RECEIVE_BABY_SKILLS,
+  type: types.RECEIVE_BABY_SKILLS,
   potentialSkills
 })
 

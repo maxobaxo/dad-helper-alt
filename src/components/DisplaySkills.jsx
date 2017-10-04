@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function DisplaySkills(props) {
-  console.log(props.babySkills);
+  console.log(props);
   return(
     <div>
-      <h3>Which of the following behaviors is your child currently exhibiting?</h3>
-      <ul>
-      </ul>
+      {props.babySkills.map((skill) => <li>{skill}</li>)}
     </div>
   )
 }
