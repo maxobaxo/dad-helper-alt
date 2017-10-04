@@ -1,6 +1,7 @@
 import React from 'react';
 import AgeFormControl from './AgeFormControl';
 import DisplaySkills from './DisplaySkills';
+import { getGames } from './../actions/games';
 import { connect } from 'react-redux';
 
 class DadHelper extends React.Component {
@@ -17,10 +18,11 @@ class DadHelper extends React.Component {
 
   handleSkillsFormSubmit(event) {
     event.preventDefault();
-
+    const { dispatch } = this.props;
     for (const checkbox of this.selectedCheckboxes) {
       console.log(checkbox, ' is selected.');
     }
+    dispatch(getGames(this.selectedCheckboxes));
   }
 
   toggleCheckbox(label) {
