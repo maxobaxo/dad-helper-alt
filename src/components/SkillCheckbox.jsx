@@ -26,11 +26,10 @@ class SkillCheckbox extends React.Component {
         <label>
           <input
             type="checkbox"
-            value={skill}
+            value={this.props.skillId}
             checked={isChecked}
             onChange={this.toggleCheckboxChange}/>
-
-          { skill }
+          { this.props.skillName }
         </label>
       </div>
     )
@@ -38,7 +37,9 @@ class SkillCheckbox extends React.Component {
 }
 
 SkillCheckbox.propTypes = {
-  skill: PropTypes.string,
+  skill: PropTypes.object,
+  skillName: PropTypes.string,
+  skillId: PropTypes.string,
   handleCheckboxChange: PropTypes.func
 }
 

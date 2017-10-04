@@ -13,12 +13,14 @@ export const receiveGames = () => ({
 
 export function getGames(selectedSkills, dispatch) {
   return function(dispatch) {
+    console.log(selectedSkills);
     dispatch(requestGames(selectedSkills));
     return fetch('http://localhost:3000/games').then(
       response => response.json(),
       error => console.log('An error occured.', error)
     ).then(function(json) {
       console.log(json);
+      dispatch(receiveGames(selectedSkills));
     })
   }
 }

@@ -33,13 +33,15 @@ export function getBabySkills(age_range, dispatch) {
         response => response.json(),
         error => console.log('An error occured.', error)
       ).then(function(json) {
+        console.log(json);
         json.forEach((skill) => {
           skill_ids.forEach((skill_id) => {
             if (skill._id === skill_id) {
-              skills.push(skill.name);
+              skills.push(skill);
             }
           })
         })
+        console.log(skills);
         dispatch(receiveBabySkills(skills));
       })
     })

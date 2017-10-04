@@ -13,6 +13,8 @@ function DisplaySkills(props) {
         {props.babySkills.map((skill, index) =>
           <SkillCheckbox
             skill={skill}
+            skillName={skill.name}
+            skillId={skill._id}
             handleCheckboxChange={props.handleCheckboxChange}
             key={index}
           />

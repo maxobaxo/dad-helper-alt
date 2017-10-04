@@ -19,10 +19,13 @@ class DadHelper extends React.Component {
   handleSkillsFormSubmit(event) {
     event.preventDefault();
     const { dispatch } = this.props;
+    const selectedSkills = [];
     for (const checkbox of this.selectedCheckboxes) {
       console.log(checkbox, ' is selected.');
+      selectedSkills.push(checkbox);
     }
-    dispatch(getGames(this.selectedCheckboxes));
+
+    dispatch(getGames(selectedSkills));
   }
 
   toggleCheckbox(label) {
