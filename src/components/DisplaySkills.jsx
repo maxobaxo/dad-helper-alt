@@ -7,19 +7,25 @@ function DisplaySkills(props) {
 
   return(
     <div>
-      <h4>Potential Skills: </h4>
-      {props.babySkills.map((skill, index) =>
-        <SkillCheckbox
-          skill={skill}
-          key={index}
-        />
-      )}
+      <form onSubmit={props.handleFormSubmit}>
+        <h4>Potential Skills: </h4>
+
+        {props.babySkills.map((skill, index) =>
+          <SkillCheckbox
+            skill={skill}
+            handleCheckboxChange={props.handleCheckboxChange}
+            key={index}
+          />
+        )}
+      </form>
     </div>
   )
 }
 
 DisplaySkills.propTypes = {
-  babySkills: PropTypes.array
+  babySkills: PropTypes.array,
+  handleFormSubmit: PropTypes.func,
+  handleCheckboxChange: PropTypes.func
 }
 
 export default DisplaySkills;
