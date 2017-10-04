@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SkillCheckbox from './SkillCheckbox';
 
 function DisplaySkills(props) {
 
-  const skills = props.babySkills;
-  const skillItems = skills.map((skill, index) =>
-    <li key={index}>
-      {skill}
-    </li>
-  );
 
   return(
     <div>
       <h4>Potential Skills: </h4>
-      <ul>{skillItems}</ul>
+      {props.babySkills.map((skill, index) =>
+        <SkillCheckbox
+          skill={skill}
+          key={index}
+        />
+      )}
     </div>
   )
 }
