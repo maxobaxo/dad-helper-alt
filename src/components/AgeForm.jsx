@@ -36,7 +36,6 @@ class AgeForm extends React.Component {
                 <option value="FiveToEight">5 - 8 Months</option>
                 <option value="NineToTwelve">9 - 12 Months</option>
               </select>
-
             </Panel>
           </Accordion>
         </form>

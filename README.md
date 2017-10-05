@@ -10,7 +10,7 @@ This web application is designed to help new parents find meaningful ways to eng
 * User can select one or more of the returned skills and click 'submit' to receive a list of games that they can play with their baby to enhance and utilize the aforementioned skills.
 
 ## Screenshot(s)
-![Screenshot](https://github.com/maxobaxo/dad-helper/screenshots/screenshot.png "Main App Screenshot")
+![Screenshot](/screenshots/screenshot.png "Main App Screenshot")
 
 ## Setup/Installation
 In Terminal...

@@ -25,7 +25,6 @@ class SkillsControl extends React.Component {
 
 
   render() {
-    console.log('SkillsControlRendered')
     return(
       <div>
         <DisplaySkills

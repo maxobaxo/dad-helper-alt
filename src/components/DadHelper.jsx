@@ -22,7 +22,6 @@ class DadHelper extends React.Component {
     const { dispatch } = this.props;
     const selectedSkills = [];
     for (const checkbox of this.selectedCheckboxes) {
-      console.log(checkbox, ' is selected.');
       selectedSkills.push(checkbox);
     }
 
