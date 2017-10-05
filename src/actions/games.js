@@ -2,25 +2,39 @@ import * as types from './../constants/ActionTypes';
 import fetch from 'isomorphic-fetch';
 import { v4 } from 'uuid';
 
-export const requestGames = () => ({
+export const requestGames = (selectedSkills) => ({
   type: types.REQUEST_GAMES,
+  selectedSkills
 });
 
-export const receiveGames = () => ({
+export const receiveGames = (relevantGames) => ({
   type: types.RECEIVE_GAMES,
+  relevantGames
 });
 
 
 export function getGames(selectedSkills, dispatch) {
   return function(dispatch) {
-    console.log(selectedSkills);
     dispatch(requestGames(selectedSkills));
+    let gameIdsFromSkills = [];
+    selectedSkills.forEach((skill) => {
+      skill.gameIds.forEach((gameId) => {
+        gameIdsFromSkills.push(gameId);
+      });
+    });
     return fetch('http://localhost:3000/games').then(
       response => response.json(),
       error => console.log('An error occured.', error)
-    ).then(function(json) {
-      console.log(json);
-      dispatch(receiveGames(selectedSkills));
+    ).then(function(all_games) {
+      let games = [];
+      all_games.forEach((game) => {
+        gameIdsFromSkills.forEach((gameId) => {
+          if (gameId === game._id) {
+            games.push(game);
+          }
+        });
+      });
+      dispatch(receiveGames(games));
     })
   }
 }

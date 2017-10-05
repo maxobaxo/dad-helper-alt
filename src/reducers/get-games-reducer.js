@@ -1,6 +1,22 @@
 import constants from './../constants';
-const { defaultState, types } = constants;
+const { types } = constants;
 
-export default (state = defaultState, action) => {
-  
+export default (state = {}, action) => {
+  let newState;
+  switch (action.type) {
+    case types.REQUEST_GAMES:
+      newState = Object.assign({}, state, {
+        isFetching: true,
+        current_skills: action.selectedSkills,
+      });
+      return newState;
+    case types.RECEIVE_GAMES:
+      newState = Object.assign({}, state, {
+        isFetching: false,
+        gamesToPlay: action.relevantGames
+      });
+      return newState;
+    default:
+      return state;
+  }
 }
