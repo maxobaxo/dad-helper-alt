@@ -40,12 +40,10 @@ class DadHelper extends React.Component {
   render() {
     return(
       <div>
-        <AgeFormControl />
-        <SkillsControl
+        <AgeFormControl
           handleFormSubmit={this.handleSkillsFormSubmit}
           handleCheckboxChange={this.toggleCheckbox}
-          babySkills={this.props.masterState.babyInfo.potential_skills}/>
-        <GamesControl gamesToPlay={this.props.masterState.babyResults.gamesToPlay}/>
+          babySkills={this.props.masterState.babyInfo.potential_skills} gamesToPlay={this.props.masterState.babyResults.gamesToPlay}/>
       </div>
     )
   }
