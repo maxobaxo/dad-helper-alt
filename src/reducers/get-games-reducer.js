@@ -1,7 +1,7 @@
 import constants from './../constants';
 const { types } = constants;
 
-export default (state = {}, action) => {
+export default (state = { gamesToPlay: [] }, action) => {
   let newState;
   switch (action.type) {
     case types.REQUEST_GAMES:

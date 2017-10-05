@@ -1,6 +1,7 @@
 import React from 'react';
 import AgeFormControl from './AgeFormControl';
 import DisplaySkills from './DisplaySkills';
+import DisplayGames from './DisplayGames';
 import { getGames } from './../actions/games';
 import { connect } from 'react-redux';
 
@@ -44,6 +45,7 @@ class DadHelper extends React.Component {
           handleFormSubmit={this.handleSkillsFormSubmit}
           handleCheckboxChange={this.toggleCheckbox}
           babySkills={this.props.masterState.babyInfo.potential_skills}/>
+        <DisplayGames gamesToPlay={this.props.masterState.babyResults.gamesToPlay}/>
       </div>
     )
   }
