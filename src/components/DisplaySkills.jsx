@@ -4,10 +4,6 @@ import SkillCheckbox from './SkillCheckbox';
 
 function DisplaySkills(props) {
 
-  function finishThis() {
-    props.handleFormSubmit;
-    props.showGames;
-  }
 
   return(
     <div className="well">
@@ -32,8 +28,7 @@ function DisplaySkills(props) {
 DisplaySkills.propTypes = {
   babySkills: PropTypes.array,
   handleFormSubmit: PropTypes.func,
-  handleCheckboxChange: PropTypes.func,
-  showGames: PropTypes.func
+  handleCheckboxChange: PropTypes.func
 }
 
 export default DisplaySkills;
