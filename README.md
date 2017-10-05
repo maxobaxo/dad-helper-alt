@@ -9,6 +9,9 @@ This web application is designed to help new parents find meaningful ways to eng
 * User can submit the age-range of their baby to receive a list of skills the baby may currently exhibit.
 * User can select one or more of the returned skills and click 'submit' to receive a list of games that they can play with their baby to enhance and utilize the aforementioned skills.
 
+## Screenshot(s)
+![Screenshot](https://github.com/maxobaxo/dad-helper/screenshots/screenshot.png "Main App Screenshot")
+
 ## Setup/Installation
 In Terminal...
 `git clone https://github.com/maxobaxo/dad-helper`  
