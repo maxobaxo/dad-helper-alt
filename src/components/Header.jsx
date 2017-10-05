@@ -1,11 +1,12 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap'
-;
+import { Jumbotron } from 'react-bootstrap';
+import styles from './../styles/Header.css'
+
 function Header(props) {
 
   return(
-    <div>
-      <Jumbotron>
+    <div >
+      <Jumbotron className={styles.header}>
         <h1>Get To Know Your Baby</h1>
       </Jumbotron>
       <div className="well">
