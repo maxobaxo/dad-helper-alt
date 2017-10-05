@@ -28,7 +28,7 @@ function DisplaySkills(props) {
 DisplaySkills.propTypes = {
   babySkills: PropTypes.array,
   handleFormSubmit: PropTypes.func,
-  handleCheckboxChange: PropTypes.func
+  handleCheckboxChange: PropTypes.func,
 }
 
 export default DisplaySkills;

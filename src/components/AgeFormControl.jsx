@@ -1,13 +1,26 @@
 import React from 'react';
 import AgeForm from './AgeForm';
 
-function AgeFormControl() {
+class AgeFormControl extends React.Component {
 
-  return(
-    <div>
-      <AgeForm />
-    </div>
-  )
+  constructor(props) {
+    super(props);
+    this.state = {ageFormIsHidden: false};
+    this.hideAgeForm = this.hideAgeForm.bind(this);
+  }
+
+  hideAgeForm() {
+    this.setState({ageFormIsHidden: true})
+  }
+
+  render() {
+
+    return(
+      <div hidden={this.state.ageFormIsHidden}>
+        <AgeForm hideAgeForm={this.hideAgeForm}/>
+      </div>
+    )
+  }
 }
 
 export default AgeFormControl;

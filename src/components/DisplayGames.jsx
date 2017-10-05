@@ -19,7 +19,7 @@ function DisplayGames(props) {
 }
 
 DisplayGames.propTypes = {
-  gamesToPlay: PropTypes.array
+  gamesToPlay: PropTypes.array,
 }
 
 export default DisplayGames;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { getBabySkills } from './../actions/age';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class AgeForm extends React.Component {
 
@@ -16,6 +17,7 @@ class AgeForm extends React.Component {
     const { _age } = this.refs;
     const { dispatch } = this.props;
     dispatch(getBabySkills(_age.value));
+    this.props.hideAgeForm();
   }
 
   render() {
@@ -34,6 +36,10 @@ class AgeForm extends React.Component {
       </div>
     )
   }
+}
+
+AgeForm.propTypes = {
+  hideAgeForm: PropTypes.func
 }
 
 export default connect()(AgeForm);
