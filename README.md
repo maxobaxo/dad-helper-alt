@@ -11,16 +11,16 @@ This web application is designed to help new parents find meaningful ways to eng
 
 ## Setup/Installation
 In Terminal...
-`git clone https://github.com/maxobaxo/dad-helper`
-`cd dad-helper`
-`npm install`
-`npm run start`
+`git clone https://github.com/maxobaxo/dad-helper`  
+`cd dad-helper`  
+`npm install`  
+`npm run start`  
 
-`cd ..`
-`git clone https://github.com/maxobaxo/dad-helper-api`
-`cd dad-helper-api`
-`npm install`
-`npm run start`
+`cd ..`  
+`git clone https://github.com/maxobaxo/dad-helper-api`  
+`cd dad-helper-api`  
+`npm install`  
+`npm run start`  
 
 In your browser, visit `https://localhost:8080`, and begin filling out the form.
 
@@ -37,15 +37,9 @@ In your browser, visit `https://localhost:8080`, and begin filling out the form.
   * Add ability to save data for multiple children.
 
 ## Technologies Used
-React,
-Redux,
-React-Bootstrap,
-JavaScript,
-Webpack,
-Babel,
-Jest,
-UUID,
-Isomorphic Fetch
+[React JS](https://reactjs.org/) | [Redux](http://redux.js.org/) | [React-Bootstrap](https://react-bootstrap.github.io/) | [JavaScript](https://www.javascript.com/) |
+[Webpack](https://webpack.github.io/) |
+[Babel](https://babeljs.io/) | [Jest](https://facebook.github.io/jest/) | [Isomorphic Fetch](https://github.github.io/fetch/)  
 
 ## Known Bugs
 * 404 Error for favicon.
