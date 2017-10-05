@@ -11,8 +11,9 @@ function DisplayGames(props) {
           name={game.name}
           description={game.description}
           bonus={game.bonus}
+          id={game._id}
           key={game._id}
-        />
+          />
       )}
     </div>
   )

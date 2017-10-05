@@ -6,11 +6,13 @@ function Header(props) {
   return(
     <div>
       <Jumbotron>
-        <h1>How To Play With Your New Baby</h1>
+        <h1>Get To Know Your Baby</h1>
       </Jumbotron>
       <div className="well">
-        <h4>Are you a new parent?</h4>
-        <p>Learn how to celebrate your child's achievements, and empower them to reach their developmental milestones.</p>
+        <div>
+          <h4>Are you a new parent?</h4>
+          <p>Learn how to celebrate your child's achievements, and empower them to reach their developmental milestones.</p>
+        </div>
       </div>
     </div>
   )
