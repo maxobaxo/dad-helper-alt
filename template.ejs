@@ -6,8 +6,10 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <% if (htmlWebpackPlugin.options.appMountId) { %>
-      <div id='<%= htmlWebpackPlugin.options.appMountId%>'></div>
-    <% } %>
+    <div class="container">
+      <% if (htmlWebpackPlugin.options.appMountId) { %>
+        <div id='<%= htmlWebpackPlugin.options.appMountId%>'></div>
+      <% } %>
+    </div>
   </body>
 </html>

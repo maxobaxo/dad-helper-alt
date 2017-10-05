@@ -20,7 +20,7 @@ class AgeForm extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="well">
         <form onSubmit={this.handleAgeSubmit}>
           <h3>How old is your little one currently?</h3>
           <select ref="_age" required>

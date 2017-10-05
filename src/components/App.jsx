@@ -1,11 +1,12 @@
 import React from 'react';
+import Header from './Header';
 import DadHelper from './DadHelper';
 
 function App() {
 
   return(
     <div>
-      <p>App Works!</p>
+      <Header />
       <DadHelper />
     </div>
   )

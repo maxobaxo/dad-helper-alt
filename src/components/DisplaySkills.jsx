@@ -6,7 +6,7 @@ function DisplaySkills(props) {
 
 
   return(
-    <div>
+    <div className="well">
       <form onSubmit={props.handleFormSubmit}>
         <h4>Potential Skills: </h4>
 
