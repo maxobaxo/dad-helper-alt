@@ -2,14 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Game(props) {
+  let gameTile;
 
-  return(
-    <div>
-      <h4>{props.name}</h4>
-      <p>{props.description}</p>
-      <p>Extra Fun: {props.bonus}</p>
-    </div>
-  )
+  if (props.name) {
+    return(
+      <div className="well">
+        <h4>{props.name}</h4>
+        <p>{props.description}</p>
+        <p>Extra Fun: {props.bonus}</p>
+      </div>
+    )
+  }
+
 }
 
 Game.propTypes = {

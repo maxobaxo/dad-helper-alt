@@ -2,6 +2,7 @@ import React from 'react';
 import AgeForm from './AgeForm';
 import DisplaySkills from './DisplaySkills';
 import DisplayGames from './DisplayGames';
+import PropTypes from 'prop-types';
 
 class AgeFormControl extends React.Component {
 
@@ -10,7 +11,7 @@ class AgeFormControl extends React.Component {
     this.state = {
       ageFormIsHidden: false,
       skillsFormIsHidden: true,
-      gamesAreHidden: true
+      // gamesAreHidden: true
     };
     this.hideAgeForm = this.hideAgeForm.bind(this);
   }
@@ -19,13 +20,6 @@ class AgeFormControl extends React.Component {
     this.setState({
       ageFormIsHidden: true,
       skillsFormIsHidden: false
-    });
-  }
-
-  showGames() {
-    this.setState({
-      gamesAreHidden: false,
-      skillsFormIsHidden: true
     });
   }
 
@@ -49,6 +43,13 @@ class AgeFormControl extends React.Component {
       </div>
     )
   }
+}
+
+AgeFormControl.propTypes = {
+  handleFormSubmit: PropTypes.func,
+  handleCheckboxChange: PropTypes.func,
+  babySkills: PropTypes.array,
+  gamesToPlay: PropTypes.array
 }
 
 export default AgeFormControl;
