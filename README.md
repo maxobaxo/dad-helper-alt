@@ -35,6 +35,7 @@ In your browser, visit `https://localhost:8080`, and begin filling out the form.
 * Add user authentication to create personalized user accounts information.
   * Create functionality for users save returned games that they like to their profile.
   * Add ability to save data for multiple children.
+* Add user ability to contribute games to the database, crowdsourcing it!
 
 ## Technologies Used
 [React JS](https://reactjs.org/) | [Redux](http://redux.js.org/) | [React-Bootstrap](https://react-bootstrap.github.io/) | [JavaScript](https://www.javascript.com/) |
