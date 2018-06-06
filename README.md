@@ -48,6 +48,7 @@ In your browser, visit `https://localhost:8080`, and begin filling out the form.
 ## Known Bugs
 * 404 Error for favicon.
 * `selected` attribute for `<select>` tag in AgeForm.jsx is deprecated, and there is no protection against submitting form with invalid value of 'Select an Age Range'
+* Only two skills in the entire database return games. This is not a bug, exactly, but simply the result of the database containing limited information.  Once the database is expanded and built out, the app's responses will become more robust.
 
 ## License Information
 This web application is free to use under the MIT License &copy; Max Scher
