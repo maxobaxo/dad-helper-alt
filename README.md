@@ -46,6 +46,7 @@ In your browser, visit `https://localhost:8080`, and begin filling out the form.
 [Babel](https://babeljs.io/) | [Jest](https://facebook.github.io/jest/) | [Isomorphic Fetch](https://github.github.io/fetch/)  
 
 ## Known Bugs
+* LIVE ONLY: Deployed version on [heroku](https://dad-helper.herokuapp.com) makes requests for insecure resources, which prevents the app from having access to the api response.
 * 404 Error for favicon.
 * `selected` attribute for `<select>` tag in AgeForm.jsx is deprecated, and there is no protection against submitting form with invalid value of 'Select an Age Range'
 
