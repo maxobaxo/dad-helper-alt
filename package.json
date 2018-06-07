@@ -5,8 +5,9 @@
   "main": "src/index.jsx",
   "scripts": {
     "test": "jest --watchALL",
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "prod": "NODE_ENV=production node server.js",
+    "prodbuild": "webpack --config webpack.production.config.js"
   },
   "keywords": [
     "baby",
