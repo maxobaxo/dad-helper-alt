@@ -22,7 +22,7 @@ export function getGames(selectedSkills, dispatch) {
         skill.gameIds.forEach((gameId) => {
           gameIdsFromSkills.push(gameId);
         });
-        return fetch('http://localhost:3000/games').then(
+        return fetch('http://better-dad-api.us.openode.io/').then(
           response => response.json(),
           error => console.log('An error occured.', error)
         ).then(function(all_games) {
