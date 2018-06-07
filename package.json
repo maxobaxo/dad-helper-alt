@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "a react app to help dads engage with their respective new children",
   "main": "src/index.jsx",
+  "engines": {
+    "node": "8.9.1"
+  },
   "scripts": {
     "test": "jest --watchALL",
     "build": "webpack",
