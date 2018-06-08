@@ -22,7 +22,7 @@ export function getGames(selectedSkills, dispatch) {
         skill.gameIds.forEach((gameId) => {
           gameIdsFromSkills.push(gameId);
         });
-        return fetch('https://better-dad-api.maxobaxo.com/games').then(
+        return fetch('http://better-dad-api.maxobaxo.com/games').then(
           response => response.json(),
           error => console.log('An error occured.', error)
         ).then(function(all_games) {

@@ -17,7 +17,7 @@ export function getBabySkills(age_range, dispatch) {
   const localBabyId = v4();
   return function(dispatch) {
     dispatch(requestBabySkills(age_range, localBabyId));
-    return fetch('https://better-dad-api.maxobaxo.com/ages').then(
+    return fetch('http://better-dad-api.maxobaxo.com/ages').then(
       response => response.json(),
       error => console.log('An error occured.', error)
     ).then(function(json) {
@@ -29,7 +29,7 @@ export function getBabySkills(age_range, dispatch) {
         }
       });
 
-      fetch('https://better-dad-api.maxobaxo.com/skills').then(
+      fetch('http://better-dad-api.maxobaxo.com/skills').then(
         response => response.json(),
         error => console.log('An error occured.', error)
       ).then(function(json) {
