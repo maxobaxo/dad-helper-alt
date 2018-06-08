@@ -17,7 +17,7 @@ export function getBabySkills(age_range, dispatch) {
   const localBabyId = v4();
   return function(dispatch) {
     dispatch(requestBabySkills(age_range, localBabyId));
-    return fetch('http://better-dad-api.us.openode.io/ages').then(
+    return fetch('https://better-dad-api.us.openode.io/ages').then(
       response => response.json(),
       error => console.log('An error occured.', error)
     ).then(function(json) {
@@ -29,7 +29,7 @@ export function getBabySkills(age_range, dispatch) {
         }
       });
 
-      fetch('http://better-dad-api.us.openode.io/skills').then(
+      fetch('https://better-dad-api.us.openode.io/skills').then(
         response => response.json(),
         error => console.log('An error occured.', error)
       ).then(function(json) {
