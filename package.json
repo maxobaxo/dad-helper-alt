@@ -24,8 +24,10 @@
   "author": "Max Scher",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "isomorphic-fetch": "^2.2.1",
+    "mongoose": "^4.10.8",
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.3",
