@@ -47,11 +47,9 @@ In your browser, visit `https://localhost:8080`, and begin filling out the form.
 
 ## Known Bugs / To-Do List
 1. Deployed version on [heroku](https://dad-helper.herokuapp.com) fails to retrieve data from deployed api (listed below), as the browser does not give securely hosted app (via Heroku) access to "insecure resources." Overcoming this obstacle necessitates deploying the API on a secure domain [read: https protocol], which requires obtaining SSL certificate for domain owned by the developer. Even with a free SSL certificate obtained by a site like [zerossl](https://zerossl.com/), the developer would need root access to the domain hosting the API, which is expensive. _If you have any suggestions for this developer about a less costly implementation strategy, your insight would be wildly appreciated._
-  a) [ages](http://better-dad-api.maxobaxo.com/ages)
-  b) [skills](http://better-dad-api.maxobaxo.com/skills)
-  c) [games](http://better-dad-api.maxobaxo.com/games)
-
-* makes requests for insecure resources, which prevents the app from having access to the api response.
+  a) [ages](http://better-dad-api.maxobaxo.com/ages)  
+  b) [skills](http://better-dad-api.maxobaxo.com/skills)  
+  c) [games](http://better-dad-api.maxobaxo.com/games)  
 2. 404 Error for favicon.
 3. `selected` attribute for `<select>` tag in AgeForm.jsx is deprecated, and there is no protection against submitting form with invalid value of 'Select an Age Range'
 
