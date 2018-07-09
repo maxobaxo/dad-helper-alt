@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "a react app to help dads engage with their respective new children",
   "main": "src/index.jsx",
+  "engines": {
+    "node": "8.11.2"
+  },
   "scripts": {
     "test": "jest --watchALL",
-    "dev": "webpack-dev-server",
-    "build": "webpack"
+    "prod": "NODE_ENV=production node server.js",
+    "prodbuild": "webpack --config webpack.production.config.js"
   },
   "keywords": [
     "baby",
@@ -20,6 +23,7 @@
   "author": "Max Scher",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.3",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
