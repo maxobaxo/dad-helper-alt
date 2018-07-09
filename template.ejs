@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <div class="container">
-      <% if (htmlWebpackPlugin.options.appMountId) { %>
-        <div id='<%= htmlWebpackPlugin.options.appMountId%>'></div>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <meta charset="utf-8">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+
+<body>
+  <div class="container">
+    <% if (htmlWebpackPlugin.options.appMountId) { %>
+      <div id='<%= htmlWebpackPlugin.options.appMountId%>'></div>
       <% } %>
-    </div>
-  </body>
+  </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAEr1hvmvV69xp2HNfUUYVD73CNn9Dh6Hs",
+    authDomain: "dad-helper.firebaseapp.com",
+    databaseURL: "https://dad-helper.firebaseio.com",
+    projectId: "dad-helper",
+    storageBucket: "",
+    messagingSenderId: "977303555379"
+  };
+  firebase.initializeApp(config);
+</script>
+
 </html>
