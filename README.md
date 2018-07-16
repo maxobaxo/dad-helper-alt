@@ -1,9 +1,11 @@
-# Get to Know Your Baby
-#### Capstone Project for Epicodus, 10.05.17
+# Dad Helper
+#### Baby Tips for Clueless Dads | 07.15.2018
 _**By Max Scher**_
 
 ## Description
-This web application is designed to help new parents find meaningful ways to engage their child based on age and current developmental phase.  The app currently utilizes a local run server to call the [Dad Helper API](https://github.com/maxobaxo/dad-helper-api), which hosts a database at mLab.com and was built in conjunction with this app.
+This web application is designed to help new parents find meaningful ways to engage their child based on age and current developmental phase.  The app works in tandem with the [Dad Helper API](https://github.com/maxobaxo/dad-helper-api), which communicates with a mongoDB database at [mLab.com](https://www.mLab.com).
+
+_*Current version of this app is deployed via heroku at [Dad-Helper](https://dad-helper.herokuapp.com/)*_
 
 ## User Stories
 * User can submit the age-range of their baby to receive a list of skills the baby may currently exhibit.
@@ -14,8 +16,8 @@ This web application is designed to help new parents find meaningful ways to eng
 
 ## Setup/Installation
 In Terminal...
-`git clone https://github.com/maxobaxo/dad-helper`  
-`cd dad-helper`  
+`git clone https://github.com/maxobaxo/dad-helper-alt`  
+`cd dad-helper-alt`  
 `npm install`  
 `npm run start`  
 
@@ -46,10 +48,9 @@ In your browser, visit `https://localhost:8080`, and begin filling out the form.
 [Babel](https://babeljs.io/) | [Jest](https://facebook.github.io/jest/) | [Isomorphic Fetch](https://github.github.io/fetch/)  
 
 ## Known Bugs / To-Do List
-1. Deployed version on [heroku](https://dad-helper.herokuapp.com) fails to retrieve data from deployed api (listed below), as the browser does not give securely hosted app (via Heroku) access to "insecure resources." Overcoming this obstacle necessitates deploying the API on a secure domain [read: https protocol], which requires obtaining SSL certificate for domain owned by the developer. Even with a free SSL certificate obtained by a site like [zerossl](https://zerossl.com/), the developer would need root access to the domain hosting the API, which is expensive. _If you have any suggestions for this developer about a less costly implementation strategy, your insight would be wildly appreciated._  
-    (a) [ages](http://better-dad-api.maxobaxo.com/ages) (b) [skills](http://better-dad-api.maxobaxo.com/skills)  (c) [games](http://better-dad-api.maxobaxo.com/games)  
-2. 404 Error for favicon.
-3. `selected` attribute for `<select>` tag in AgeForm.jsx is deprecated, and there is no protection against submitting form with invalid value of 'Select an Age Range'
+1. 404 Error for favicon.
+2. `selected` attribute for `<select>` tag in AgeForm.jsx is deprecated, and there is no protection against submitting form with invalid value of 'Select an Age Range'.
+3. Meaningful results only return for age range "0-4 months", skills "grasping a toy" and "holding up their head during tummy time".
 
 ## License Information
 This web application is free to use under the MIT License &copy; Max Scher
