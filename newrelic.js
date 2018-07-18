@@ -1,4 +1,3 @@
-"use strict";
 /**
  * New Relic agent configuration.
  *
@@ -9,7 +8,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ["Portfolio Site", "Dad Helper"],
+  app_name: ["Portfolio Site"],
   /**
    * Your New Relic license key.
    */
