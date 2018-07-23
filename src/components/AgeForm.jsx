@@ -1,37 +1,54 @@
-import React from 'react';
-import { Accordion, Panel, Button } from 'react-bootstrap';
-import { getBabySkills } from './../actions/age';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Accordion, Panel, Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import { func } from "prop-types";
+import { getBabySkills } from "./../actions/age";
+
+const propTypes = {
+  hideAgeForm: func.isRequired
+};
 
 class AgeForm extends React.Component {
+  state = {
+    value: ""
+  };
 
-  constructor(props) {
-    super(props);
-    this.handleAgeSubmit = this.handleAgeSubmit.bind(this);
-  }
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
 
-  handleAgeSubmit(event) {
+  handleAgeSubmit = event => {
     event.preventDefault();
-
-    const { _age } = this.refs;
     const { dispatch } = this.props;
-    dispatch(getBabySkills(_age.value));
+    dispatch(getBabySkills(this.state.value));
     this.props.hideAgeForm();
-  }
+  };
 
   render() {
     const submitButton = (
-      <Button bsStyle="success" bsSize="xs" type="submit">Submit</Button>
+      <Button bsStyle="success" bsSize="xs" type="submit">
+        Submit
+      </Button>
     );
 
-    return(
+    return (
       <div>
         <form onSubmit={this.handleAgeSubmit}>
           <Accordion>
-            <Panel bsStyle="success" header="How old is your little one currently?" footer={submitButton}>
-              <select ref="_age" required>
-                <option selected disabled>Select an Age Range</option>
+            <Panel
+              bsStyle="success"
+              header="How old is your little one currently?"
+              footer={submitButton}
+            >
+              <select
+                name="age"
+                value={this.state.value}
+                onChange={this.handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select an Age Range
+                </option>
                 <option value="ZeroToFour">0 - 4 Months</option>
                 <option value="FiveToEight">5 - 8 Months</option>
                 <option value="NineToTwelve">9 - 12 Months</option>
@@ -40,12 +57,9 @@ class AgeForm extends React.Component {
           </Accordion>
         </form>
       </div>
-    )
+    );
   }
 }
-
-AgeForm.propTypes = {
-  hideAgeForm: PropTypes.func
-}
+AgeForm.propTypes = propTypes;
 
 export default connect()(AgeForm);
