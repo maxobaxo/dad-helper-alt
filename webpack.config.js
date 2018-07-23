@@ -1,60 +1,54 @@
-const webpack = require('webpack');
-const { resolve } = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
+const { resolve } = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-
   entry: [
-    'react-hot-loader',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    resolve(__dirname, 'src') + '/index.jsx'
+    "react-hot-loader",
+    "webpack-dev-server/client?http://localhost:8080",
+    "webpack/hot/only-dev-server",
+    resolve(__dirname, "src") + "/index.jsx"
   ],
 
   output: {
-    filename: 'app.bundle.js',
-    path: resolve(__dirname, 'build'),
-    publicPath: '/'
+    filename: "app.bundle.js",
+    path: resolve(__dirname, "build"),
+    publicPath: "/"
   },
 
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: [".js", ".jsx"]
   },
 
-  devtool: '#source-maps',
+  devtool: "#source-maps",
 
   devServer: {
     hot: true,
-    contentBase: resolve(__dirname, 'build'),
-    publicPath: '/'
+    contentBase: resolve(__dirname, "build"),
+    publicPath: "/"
   },
 
   module: {
     rules: [
       {
         test: /\.css$/,
-        loader: 'style-loader'
+        loader: "style-loader"
       },
       {
         test: /\.css$/,
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]',
+          localIdentName: "[name]__[local]___[hash:base64:5]"
         }
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         exclude: /node_modules/,
         options: {
-          presets: [
-            ['es2015', {'modules': false}],
-            'react',
-          ],
-          plugins: [
-            'react-hot-loader/babel'
-          ]
+          presets: [["es2015", { modules: false }], "react"],
+          plugins: ["react-hot-loader/babel", "transform-class-properties"]
         }
       }
     ]
@@ -64,10 +58,10 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
-      template: 'template.ejs',
-      appMountId: 'react-app-root',
-      title: 'Dad Helper',
-      filename: resolve(__dirname, 'build', 'index.html'),
-    }),
+      template: "template.ejs",
+      appMountId: "react-app-root",
+      title: "Dad Helper",
+      filename: resolve(__dirname, "build", "index.html")
+    })
   ]
 };

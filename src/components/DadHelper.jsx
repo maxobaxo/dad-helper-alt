@@ -1,28 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import AgeFormControl from "./AgeFormControl";
-import SkillsControl from "./SkillsControl";
-import GamesControl from "./GamesControl";
 import { getGames } from "./../actions/games";
 import { connect } from "react-redux";
 
-class DadHelper extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ageFormIsHidden: false,
-      skillsFormIsHidden: true,
-      gamesAreHidden: true
-    };
-    this.handleSkillsFormSubmit = this.handleSkillsFormSubmit.bind(this);
-    this.toggleCheckbox = this.toggleCheckbox.bind(this);
-    this.hideAgeForm = this.hideAgeForm.bind(this);
-  }
+class DadHelper extends Component {
+  state = {
+    ageFormIsHidden: false,
+    skillsFormIsHidden: true,
+    gamesAreHidden: true
+  };
 
-  componentWillMount() {
+  componentWillMount = () => {
     this.selectedCheckboxes = new Set();
-  }
+  };
 
-  async handleSkillsFormSubmit(event) {
+  handleSkillsFormSubmit = async event => {
     event.preventDefault();
     const { dispatch } = this.props;
     const selectedSkills = [];
@@ -34,22 +26,22 @@ class DadHelper extends React.Component {
     this.setState({
       gamesAreHidden: false
     });
-  }
+  };
 
-  toggleCheckbox(label) {
+  toggleCheckbox = label => {
     if (this.selectedCheckboxes.has(label)) {
       this.selectedCheckboxes.delete(label);
     } else {
       this.selectedCheckboxes.add(label);
     }
-  }
+  };
 
-  hideAgeForm() {
+  hideAgeForm = () => {
     this.setState({
       ageFormIsHidden: true,
       skillsFormIsHidden: false
     });
-  }
+  };
 
   render() {
     return (
