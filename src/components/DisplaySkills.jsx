@@ -1,7 +1,7 @@
 import React from "react";
 import { func, array } from "prop-types";
-import SkillCheckbox from "./SkillCheckbox";
 import { Button, Panel, Accordion } from "react-bootstrap";
+import SkillCheckbox from "./SkillCheckbox";
 
 const propTypes = {
   handleCheckboxChange: func.isRequired,

@@ -21,7 +21,6 @@ const Game = ({ name, description, bonus }) => {
     </div>
   ) : null;
 };
-
 Game.propTypes = propTypes;
 
 export default Game;
