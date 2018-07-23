@@ -16,39 +16,30 @@ export function getGames(selectedSkills, dispatch) {
   return function(dispatch) {
     dispatch(requestGames(selectedSkills));
     let gameIdsFromSkills = [];
-    selectedSkills.forEach(skill => {
-      if (skill.gameIds) {
-        skill.gameIds.forEach(gameId => {
-          gameIdsFromSkills.push(gameId);
-        });
-        return fetch("https://floating-basin-62498.herokuapp.com/games")
-          .then(
-            response => response.json(),
-            error => console.log("An error occured.", error)
-          )
-          .then(function(all_games) {
-            let games = [];
-            all_games.forEach(game => {
-              gameIdsFromSkills.forEach(gameId => {
-                if (gameId === game._id) {
-                  games.push(game);
-                }
-              });
+    return fetch("https://floating-basin-62498.herokuapp.com/games")
+      .then(
+        response => response.json(),
+        error => console.log("An error occured.", error)
+      )
+      .then(function(all_games) {
+        let games = [];
+        selectedSkills.forEach(skill => {
+          if (skill.gameIds) {
+            skill.gameIds.forEach(gameId => {
+              gameIdsFromSkills.push(gameId);
             });
-            dispatch(receiveGames(games));
-          });
-      } else {
-        let noGames = [
-          {
-            _id: "no_games_for_the_chosen_skills",
-            name: "Our Apologies",
-            description:
-              "Unfortunately, we do not currently have any games for the skills you selected.",
-            bonus: "We hope to have new games added for you soon."
           }
-        ];
-        dispatch(receiveGames(noGames));
-      }
-    });
+        });
+        if (gameIdsFromSkills.length > 0) {
+          all_games.forEach(game => {
+            gameIdsFromSkills.forEach(gameId => {
+              if (gameId === game._id) {
+                games.push(game);
+              }
+            });
+          });
+        }
+        dispatch(receiveGames(games));
+      });
   };
 }
