@@ -1,8 +1,10 @@
 const webpack = require("webpack");
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
+  mode: "production",
   entry: ["./src/index.jsx"],
 
   output: {
@@ -41,13 +43,16 @@ module.exports = {
     ]
   },
 
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
+  },
+
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production")
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: "template.ejs",
