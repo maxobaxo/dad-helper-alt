@@ -17,10 +17,10 @@ class AgeForm extends React.Component {
     this.setState({ value: event.target.value });
   };
 
-  handleAgeSubmit = event => {
+  handleAgeSubmit = async event => {
     event.preventDefault();
     const { dispatch } = this.props;
-    dispatch(getBabySkills(this.state.value));
+    await dispatch(getBabySkills(this.state.value));
     this.props.hideAgeForm();
   };
 
