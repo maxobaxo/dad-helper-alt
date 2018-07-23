@@ -1,47 +1,28 @@
-import React from 'react';
-import AgeForm from './AgeForm';
-import DisplaySkills from './DisplaySkills';
-import DisplayGames from './DisplayGames';
-import PropTypes from 'prop-types';
+import React from "react";
+import AgeForm from "./AgeForm";
+import DisplaySkills from "./DisplaySkills";
+import DisplayGames from "./DisplayGames";
+import PropTypes from "prop-types";
 
 class AgeFormControl extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      ageFormIsHidden: false,
-      skillsFormIsHidden: true,
-      // gamesAreHidden: true
-    };
-    this.hideAgeForm = this.hideAgeForm.bind(this);
-  }
-
-  hideAgeForm() {
-    this.setState({
-      ageFormIsHidden: true,
-      skillsFormIsHidden: false
-    });
-  }
-
   render() {
-
-    return(
+    return (
       <div>
-        <div hidden={this.state.ageFormIsHidden}>
-          <AgeForm hideAgeForm={this.hideAgeForm}/>
+        <div hidden={this.props.ageFormIsHidden}>
+          <AgeForm hideAgeForm={this.props.hideAgeForm} />
         </div>
-        <div hidden={this.state.skillsFormIsHidden}>
+        <div hidden={this.props.skillsFormIsHidden}>
           <DisplaySkills
             handleFormSubmit={this.props.handleFormSubmit}
             handleCheckboxChange={this.props.handleCheckboxChange}
-            babySkills={this.props.babySkills}/>
+            babySkills={this.props.babySkills}
+          />
         </div>
-        <div hidden={this.state.gamesAreHidden}>
-          <DisplayGames
-            gamesToPlay={this.props.gamesToPlay}/>
+        <div hidden={this.props.gamesAreHidden}>
+          <DisplayGames gamesToPlay={this.props.gamesToPlay} />
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -50,6 +31,6 @@ AgeFormControl.propTypes = {
   handleCheckboxChange: PropTypes.func,
   babySkills: PropTypes.array,
   gamesToPlay: PropTypes.array
-}
+};
 
 export default AgeFormControl;
