@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "jest --watchALL",
+    "dev": "webpack-dev-server",
     "prod": "NODE_ENV=production node server.js",
     "prodbuild": "webpack --config webpack.production.config.js"
   },
@@ -25,11 +26,13 @@
   "dependencies": {
     "express": "^4.16.3",
     "isomorphic-fetch": "^2.2.1",
+    "material-design-icons": "^3.0.1",
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.6",
+    "react-toolbox": "^2.0.0-beta.13",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
@@ -50,6 +53,6 @@
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^2.5.0"
+    "webpack-dev-server": "^3.1.5"
   }
 }

@@ -3,6 +3,8 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "development",
+
   entry: [
     "react-hot-loader",
     "webpack-dev-server/client?http://localhost:8080",
