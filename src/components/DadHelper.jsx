@@ -1,23 +1,20 @@
-import React from 'react';
-import AgeFormControl from './AgeFormControl';
-import SkillsControl from './SkillsControl';
-import GamesControl from './GamesControl';
-import { getGames } from './../actions/games';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import AgeFormControl from "./AgeFormControl";
+import { getGames } from "./../actions/games";
+import { connect } from "react-redux";
 
-class DadHelper extends React.Component {
+class DadHelper extends Component {
+  state = {
+    ageFormIsHidden: false,
+    skillsFormIsHidden: true,
+    gamesAreHidden: true
+  };
 
-  constructor(props) {
-    super(props);
-    this.handleSkillsFormSubmit = this.handleSkillsFormSubmit.bind(this);
-    this.toggleCheckbox = this.toggleCheckbox.bind(this);
-  }
-
-  componentWillMount() {
+  componentWillMount = () => {
     this.selectedCheckboxes = new Set();
-  }
+  };
 
-  handleSkillsFormSubmit(event) {
+  handleSkillsFormSubmit = async event => {
     event.preventDefault();
     const { dispatch } = this.props;
     const selectedSkills = [];
@@ -25,33 +22,49 @@ class DadHelper extends React.Component {
       selectedSkills.push(checkbox);
     }
 
-    dispatch(getGames(selectedSkills));
-  }
+    await dispatch(getGames(selectedSkills));
+    this.setState({
+      gamesAreHidden: false
+    });
+  };
 
-  toggleCheckbox(label) {
+  toggleCheckbox = label => {
     if (this.selectedCheckboxes.has(label)) {
       this.selectedCheckboxes.delete(label);
     } else {
       this.selectedCheckboxes.add(label);
     }
-  }
+  };
+
+  hideAgeForm = () => {
+    this.setState({
+      ageFormIsHidden: true,
+      skillsFormIsHidden: false
+    });
+  };
 
   render() {
-    return(
+    return (
       <div>
         <AgeFormControl
           handleFormSubmit={this.handleSkillsFormSubmit}
           handleCheckboxChange={this.toggleCheckbox}
-          babySkills={this.props.masterState.babyInfo.potential_skills} gamesToPlay={this.props.masterState.babyResults.gamesToPlay}/>
+          babySkills={this.props.masterState.babyInfo.potential_skills}
+          gamesToPlay={this.props.masterState.babyResults.gamesToPlay}
+          hideAgeForm={this.hideAgeForm}
+          ageFormIsHidden={this.state.ageFormIsHidden}
+          skillsFormIsHidden={this.state.skillsFormIsHidden}
+          gamesAreHidden={this.state.gamesAreHidden}
+        />
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
     masterState: state
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(DadHelper);

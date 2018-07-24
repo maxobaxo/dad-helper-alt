@@ -1,30 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Accordion, Panel } from 'react-bootstrap';
+import React from "react";
+import { string } from "prop-types";
+import { Accordion, Panel } from "react-bootstrap";
 
-function Game(props) {
-  let gameTile;
+const propTypes = {
+  name: string.isRequired,
+  description: string.isRequired,
+  bonus: string.isRequired,
+  id: string.isRequired
+};
 
-  if (props.name) {
-    return(
-      <div>
-        <Accordion>
-          <Panel header={props.name} bsStyle="success">
-            <p>{props.description}</p>
-            <p>Extra Fun: {props.bonus}</p>
-          </Panel>
-        </Accordion>
-      </div>
-    )
-  }
-
-}
-
-Game.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  bonus: PropTypes.string,
-  id: PropTypes.string
-}
+const Game = ({ name, description, bonus }) => {
+  return name ? (
+    <div>
+      <Accordion>
+        <Panel header={name} bsStyle="success">
+          <p>{description}</p>
+          <p>Extra Fun: {bonus}</p>
+        </Panel>
+      </Accordion>
+    </div>
+  ) : null;
+};
+Game.propTypes = propTypes;
 
 export default Game;

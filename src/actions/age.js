@@ -13,16 +13,16 @@ export const receiveBabySkills = potentialSkills => ({
   potentialSkills
 });
 
-export function getBabySkills(age_range, dispatch) {
+export const getBabySkills = (age_range, dispatch) => {
   const localBabyId = v4();
-  return function(dispatch) {
+  return dispatch => {
     dispatch(requestBabySkills(age_range, localBabyId));
     return fetch("https://floating-basin-62498.herokuapp.com/ages")
       .then(
         response => response.json(),
         error => console.log("An error occured.", error)
       )
-      .then(function(json) {
+      .then(json => {
         let skill_ids;
         let skills = [];
         json.forEach(ageRange => {
@@ -36,7 +36,7 @@ export function getBabySkills(age_range, dispatch) {
             response => response.json(),
             error => console.log("An error occured.", error)
           )
-          .then(function(json) {
+          .then(json => {
             json.forEach(skill => {
               skill_ids.forEach(skill_id => {
                 if (skill._id === skill_id) {
@@ -44,9 +44,8 @@ export function getBabySkills(age_range, dispatch) {
                 }
               });
             });
-            console.log(skills);
             dispatch(receiveBabySkills(skills));
           });
       });
   };
-}
+};

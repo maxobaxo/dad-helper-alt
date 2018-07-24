@@ -1,46 +1,42 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { object, string, func } from "prop-types";
 
-class SkillCheckbox extends React.Component {
+class SkillCheckbox extends Component {
+  static propTypes = {
+    skill: object.isRequired,
+    skillName: string.isRequired,
+    skillId: string.isRequired,
+    handleCheckboxChange: func.isRequired
+  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isChecked: false,
-    }
-    this.toggleCheckboxChange = this.toggleCheckboxChange.bind(this);
-  }
+  state = {
+    isChecked: false
+  };
 
-  toggleCheckboxChange() {
+  toggleCheckboxChange = () => {
     let newState = !this.state.isChecked;
     this.setState({ isChecked: newState });
     this.props.handleCheckboxChange(this.props.skill);
-  }
+  };
 
   render() {
-    const { skill } = this.props;
+    const { skillId, skillName } = this.props;
     const { isChecked } = this.state;
 
-    return(
+    return (
       <div>
         <label>
           <input
             type="checkbox"
-            value={this.props.skillId}
+            value={skillId}
             checked={isChecked}
-            onChange={this.toggleCheckboxChange}/>
-          {this.props.skillName}
+            onChange={this.toggleCheckboxChange}
+          />
+          {skillName}
         </label>
       </div>
-    )
+    );
   }
-}
-
-SkillCheckbox.propTypes = {
-  skill: PropTypes.object,
-  skillName: PropTypes.string,
-  skillId: PropTypes.string,
-  handleCheckboxChange: PropTypes.func
 }
 
 export default SkillCheckbox;

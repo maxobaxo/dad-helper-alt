@@ -1,8 +1,10 @@
 const webpack = require("webpack");
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
+  mode: "production",
   entry: ["./src/index.jsx"],
 
   output: {
@@ -35,10 +37,14 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: [["es2015", { modules: false }], "react"],
-          plugins: ["react-hot-loader/babel"]
+          plugins: ["react-hot-loader/babel", "transform-class-properties"]
         }
       }
     ]
+  },
+
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
   },
 
   plugins: [
@@ -47,7 +53,6 @@ module.exports = {
         NODE_ENV: JSON.stringify("production")
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: "template.ejs",
