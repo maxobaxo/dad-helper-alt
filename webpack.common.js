@@ -1,11 +1,8 @@
-const webpack = require("webpack");
 const { resolve, join } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
-
-  entry: [resolve(__dirname, "src") + "/index.jsx"],
+  entry: ["./src/index.jsx"],
 
   output: {
     filename: "app.bundle.js",
@@ -15,15 +12,6 @@ module.exports = {
 
   resolve: {
     extensions: [".js", ".jsx"]
-  },
-
-  devtool: "eval",
-
-  devServer: {
-    hot: true,
-    contentBase: resolve(__dirname, "build"),
-    publicPath: "/",
-    port: 8080
   },
 
   module: {
@@ -45,9 +33,8 @@ module.exports = {
             loader: "css-loader",
             options: {
               modules: true,
-              sourceMap: true,
               importLoaders: 1,
-              localIdentName: "[name]--[local]--[hash:base64:8]"
+              localIdentName: "[name]__[local]___[hash:base64:5]"
             }
           }
         ]
@@ -56,7 +43,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: "template.ejs",
       appMountId: "react-app-root",
