@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import AgeFormControl from "./AgeFormControl";
-import { getGames } from "./../actions/games";
 import { connect } from "react-redux";
+import { Card, CardTitle, CardText } from "react-toolbox/lib/card";
+import { getGames } from "./../actions/games";
 
 class DadHelper extends Component {
   state = {
@@ -45,7 +46,14 @@ class DadHelper extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ margin: "25px 5%"}}>
+        <Card>
+          <CardTitle title="Are you a new parent?" />
+          <CardText>
+            Learn how to celebrate your child's achievements, and empower them
+            to reach their developmental milestones.
+          </CardText>
+        </Card>
         <AgeFormControl
           handleFormSubmit={this.handleSkillsFormSubmit}
           handleCheckboxChange={this.toggleCheckbox}
