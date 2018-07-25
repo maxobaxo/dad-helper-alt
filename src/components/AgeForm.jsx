@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { func } from "prop-types";
-import { Card, CardTitle, CardText } from "react-toolbox/lib/card";
+import { Card, CardTitle, CardText, CardMedia } from "react-toolbox/lib/card";
 import { getBabySkills } from "./../actions/age";
-import "./../styles/AgeForm.css";
+import styles from "./../styles/AgeForm.css";
+import zeroToFour from "../static/ZeroToFour.jpg";
+import fiveToEight from "../static/FiveToEight.jpg";
+import nineToTwelve from "../static/NineToTwelve.jpg";
 
 const propTypes = {
   hideAgeForm: func.isRequired
@@ -14,8 +17,8 @@ class AgeForm extends Component {
     value: "ZeroToFour"
   };
 
-  handleChange = value => {
-    this.setState({ value });
+  handleChange = event => {
+    this.setState({ value: event.target.value });
   };
 
   handleAgeSubmit = async event => {
@@ -26,44 +29,55 @@ class AgeForm extends Component {
   };
 
   render() {
-    // const container = {
-    //   display: "flex",
-    //   justifyContent: "space-around",
-    //   height: "250px",
-    //   zIndex: "1100",
-    //   width: "100%"
-    // };
-
     return (
       <div>
         <h2>How old is your little one currently?</h2>
-        <form>
-          <div className="container">
-            {/* <label className="option">
-            <input type="radio" name="age" value="0 - 4 Months" />
-            <div> */}
-            <Card style={{ width: "350px" }} className="card">
-              <CardTitle title="0 - 4 Months" />
-            </Card>
-            {/* </div>
-          </label> */}
-            {/* <label className="option">
-            <input type="radio" name="age" value="5 - 8 Months" />
-            <div> */}
-            <Card style={{ width: "350px" }} className="card">
-              <CardTitle title="5 - 8 Months" />
-            </Card>
-            {/* </div>
-          </label> */}
-            {/* <label className="option">
-            <input type="radio" name="age" value="9 - 12 Months" />
-            <div> */}
-            <Card style={{ width: "350px" }} className="card">
-              <CardTitle title="9 - 12 Months" />
-            </Card>
-            {/* //   </div>
-          // // </label> */}
+        <form onSubmit={this.handleAgeSubmit}>
+          <div className={styles.container}>
+            <label>
+              <input
+                type="radio"
+                name="age"
+                value="ZeroToFour"
+                onChange={this.handleChange}
+              />
+              <div className={styles.card}>
+                <Card style={{ width: "350px" }}>
+                  <CardMedia aspectRatio="wide" image={zeroToFour} />
+                  <CardTitle title="0 - 4 Months" />
+                </Card>
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="age"
+                value="FiveToEight"
+                onChange={this.handleChange}
+              />
+              <div className={styles.card}>
+                <Card style={{ width: "350px" }}>
+                  <CardMedia aspectRatio="wide" image={fiveToEight} />
+                  <CardTitle title="5 - 8 Months" />
+                </Card>
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="age"
+                value="NineToTwelve"
+                onChange={this.handleChange}
+              />
+              <div className={styles.card}>
+                <Card style={{ width: "350px" }}>
+                  <CardMedia aspectRatio="wide" image={nineToTwelve} />
+                  <CardTitle title="9 - 12 Months" />
+                </Card>
+              </div>
+            </label>
           </div>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );

@@ -38,6 +38,15 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(jpg|svg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {}
+          }
+        ]
       }
     ]
   },
