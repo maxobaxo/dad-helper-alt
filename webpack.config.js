@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-const { resolve } = require("path");
+const { resolve, join } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
 
   output: {
     filename: "app.bundle.js",
-    path: resolve(__dirname, "build"),
+    path: join(__dirname, "/build"),
     publicPath: "/"
   },
 
@@ -49,7 +49,7 @@ module.exports = {
         loader: "babel-loader",
         exclude: /node_modules/,
         options: {
-          presets: [["es2015", { modules: false }], "react"],
+          presets: [["env", { modules: false }], "react"],
           plugins: ["react-hot-loader/babel", "transform-class-properties"]
         }
       }
