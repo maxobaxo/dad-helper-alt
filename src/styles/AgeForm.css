@@ -1,22 +1,31 @@
+label {
+  width: "355px";
+  margin: 1%;
+}
+
 label > input {
   /* HIDE RADIO */
-  visibility: hidden; /* Makes input not-clickable */
   position: absolute; /* Remove input from document flow */
 }
 
 label > input + .card {
-  /* IMAGE STYLES */
   cursor: pointer;
-  border: 2px solid transparent;
+}
+
+label > input:hover + .card > .cardFrame > .cardTitle {
+  /* IMAGE STYLES */
+  text-decoration: underline;
 }
 
 label > input:checked + .card {
   /* (RADIO CHECKED) IMAGE STYLES */
-  border: 2px solid #f00;
+  box-shadow: 0 0 3px 3px #303f9f;
 }
 
 .card {
-  display: inline-block;
+  display: "inline-block";
+  width: "350px";
+  border-radius: 3px;
 }
 
 .option {
@@ -25,10 +34,9 @@ label > input:checked + .card {
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
-  border: 5px red solid;
-  height: 250px;
-  width: 100%;
-  background-color: #f00;
+  z-index: "1100";
+  width: "100%";
 }

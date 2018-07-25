@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { func } from "prop-types";
-import { Card, CardTitle, CardText, CardMedia } from "react-toolbox/lib/card";
+import { Card, CardTitle, CardMedia } from "react-toolbox/lib/card";
+import { Button } from "react-toolbox/lib/button";
 import { getBabySkills } from "./../actions/age";
 import styles from "./../styles/AgeForm.css";
 import zeroToFour from "../static/ZeroToFour.jpg";
@@ -30,55 +31,72 @@ class AgeForm extends Component {
 
   render() {
     return (
-      <div>
-        <h2>How old is your little one currently?</h2>
-        <form onSubmit={this.handleAgeSubmit}>
-          <div className={styles.container}>
-            <label>
-              <input
-                type="radio"
-                name="age"
-                value="ZeroToFour"
-                onChange={this.handleChange}
-              />
-              <div className={styles.card}>
-                <Card style={{ width: "350px" }}>
-                  <CardMedia aspectRatio="wide" image={zeroToFour} />
-                  <CardTitle title="0 - 4 Months" />
-                </Card>
-              </div>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="age"
-                value="FiveToEight"
-                onChange={this.handleChange}
-              />
-              <div className={styles.card}>
-                <Card style={{ width: "350px" }}>
-                  <CardMedia aspectRatio="wide" image={fiveToEight} />
-                  <CardTitle title="5 - 8 Months" />
-                </Card>
-              </div>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="age"
-                value="NineToTwelve"
-                onChange={this.handleChange}
-              />
-              <div className={styles.card}>
-                <Card style={{ width: "350px" }}>
-                  <CardMedia aspectRatio="wide" image={nineToTwelve} />
-                  <CardTitle title="9 - 12 Months" />
-                </Card>
-              </div>
-            </label>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+      <div style={{ marginTop: "25px", marginBottom: "25px" }}>
+        <Card>
+          <CardTitle title="How old is your little one currently?" />
+          <form onSubmit={this.handleAgeSubmit}>
+            <div className={styles.container}>
+              <label>
+                <input
+                  type="radio"
+                  name="age"
+                  value="ZeroToFour"
+                  onChange={this.handleChange}
+                />
+                <div className={styles.card}>
+                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                    <CardMedia aspectRatio="wide" image={zeroToFour} />
+                    <CardTitle
+                      className={styles.cardTitle}
+                      title="0 - 4 Months"
+                    />
+                  </Card>
+                </div>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="age"
+                  value="FiveToEight"
+                  onChange={this.handleChange}
+                />
+                <div className={styles.card}>
+                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                    <CardMedia aspectRatio="wide" image={fiveToEight} />
+                    <CardTitle
+                      className={styles.cardTitle}
+                      title="5 - 8 Months"
+                    />
+                  </Card>
+                </div>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="age"
+                  value="NineToTwelve"
+                  onChange={this.handleChange}
+                />
+                <div className={styles.card}>
+                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                    <CardMedia aspectRatio="wide" image={nineToTwelve} />
+                    <CardTitle
+                      className={styles.cardTitle}
+                      title="9 - 12 Months"
+                    />
+                  </Card>
+                </div>
+              </label>
+            </div>
+            <Button
+              style={{ marginTop: "25px", marginLeft: "25px" }}
+              type="submit"
+              raised
+            >
+              Submit
+            </Button>
+          </form>
+        </Card>
       </div>
     );
   }
