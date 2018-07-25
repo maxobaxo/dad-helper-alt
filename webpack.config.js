@@ -5,10 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
 
-  entry: [
-    "webpack-dev-server/client?http://localhost:8080",
-    resolve(__dirname, "src") + "/index.jsx"
-  ],
+  entry: [resolve(__dirname, "src") + "/index.jsx"],
 
   output: {
     filename: "app.bundle.js",
@@ -25,7 +22,8 @@ module.exports = {
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, "build"),
-    publicPath: "/"
+    publicPath: "/",
+    port: 8080
   },
 
   module: {
