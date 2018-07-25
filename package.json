@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest --watchALL",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --hot",
     "prod": "NODE_ENV=production node server.js",
     "prodbuild": "webpack --config webpack.production.config.js"
   },
@@ -31,6 +31,7 @@
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.5.4",
+    "react-hot-loader": "^4.3.3",
     "react-redux": "^5.0.6",
     "react-toolbox": "^2.0.0-beta.13",
     "redux": "^3.7.2",
@@ -49,7 +50,6 @@
     "css-loader": "^0.28.4",
     "html-webpack-plugin": "^4.0.0-alpha",
     "jest": "^20.0.4",
-    "react-hot-loader": "^3.0.0-beta.7",
     "style-loader": "^0.18.2",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.2",

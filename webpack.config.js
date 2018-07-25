@@ -6,9 +6,7 @@ module.exports = {
   mode: "development",
 
   entry: [
-    "react-hot-loader",
     "webpack-dev-server/client?http://localhost:8080",
-    "webpack/hot/only-dev-server",
     resolve(__dirname, "src") + "/index.jsx"
   ],
 
@@ -22,7 +20,7 @@ module.exports = {
     extensions: [".js", ".jsx"]
   },
 
-  devtool: "#source-maps",
+  devtool: "eval",
 
   devServer: {
     hot: true,
@@ -57,7 +55,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: "template.ejs",
