@@ -1,20 +1,21 @@
-import React from "react";
-import { Accordion, Panel, Button } from "react-bootstrap";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { func } from "prop-types";
+import { Card, CardTitle, CardText } from "react-toolbox/lib/card";
 import { getBabySkills } from "./../actions/age";
+import "./../styles/AgeForm.css";
 
 const propTypes = {
   hideAgeForm: func.isRequired
 };
 
-class AgeForm extends React.Component {
+class AgeForm extends Component {
   state = {
-    value: ""
+    value: "ZeroToFour"
   };
 
-  handleChange = event => {
-    this.setState({ value: event.target.value });
+  handleChange = value => {
+    this.setState({ value });
   };
 
   handleAgeSubmit = async event => {
@@ -25,36 +26,44 @@ class AgeForm extends React.Component {
   };
 
   render() {
-    const submitButton = (
-      <Button bsStyle="success" bsSize="xs" type="submit">
-        Submit
-      </Button>
-    );
+    // const container = {
+    //   display: "flex",
+    //   justifyContent: "space-around",
+    //   height: "250px",
+    //   zIndex: "1100",
+    //   width: "100%"
+    // };
 
     return (
       <div>
-        <form onSubmit={this.handleAgeSubmit}>
-          <Accordion>
-            <Panel
-              bsStyle="success"
-              header="How old is your little one currently?"
-              footer={submitButton}
-            >
-              <select
-                name="age"
-                value={this.state.value}
-                onChange={this.handleChange}
-                required
-              >
-                <option value="" disabled>
-                  Select an Age Range
-                </option>
-                <option value="ZeroToFour">0 - 4 Months</option>
-                <option value="FiveToEight">5 - 8 Months</option>
-                <option value="NineToTwelve">9 - 12 Months</option>
-              </select>
-            </Panel>
-          </Accordion>
+        <h2>How old is your little one currently?</h2>
+        <form>
+          <div className="container">
+            {/* <label className="option">
+            <input type="radio" name="age" value="0 - 4 Months" />
+            <div> */}
+            <Card style={{ width: "350px" }} className="card">
+              <CardTitle title="0 - 4 Months" />
+            </Card>
+            {/* </div>
+          </label> */}
+            {/* <label className="option">
+            <input type="radio" name="age" value="5 - 8 Months" />
+            <div> */}
+            <Card style={{ width: "350px" }} className="card">
+              <CardTitle title="5 - 8 Months" />
+            </Card>
+            {/* </div>
+          </label> */}
+            {/* <label className="option">
+            <input type="radio" name="age" value="9 - 12 Months" />
+            <div> */}
+            <Card style={{ width: "350px" }} className="card">
+              <CardTitle title="9 - 12 Months" />
+            </Card>
+            {/* //   </div>
+          // // </label> */}
+          </div>
         </form>
       </div>
     );
