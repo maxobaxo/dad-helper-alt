@@ -29,7 +29,6 @@
     "material-design-icons": "^3.0.1",
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
-    "react-bootstrap": "^0.31.3",
     "react-dom": "^15.5.4",
     "react-hot-loader": "^4.3.3",
     "react-redux": "^5.0.6",
