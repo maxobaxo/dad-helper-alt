@@ -11,21 +11,22 @@ const GithubIcon = () => (
   </svg>
 );
 
-const LinkToCode = () => (
-  <IconButton
-    href="https://github.com/maxobaxo/dad-helper-alt"
-    icon={<GithubIcon />}
-    target="_blank"
-    inverse
-  />
-);
-
 const Header = props => {
   return (
     <AppBar
       title="Get To Know Your Baby"
       leftIcon="child_friendly"
-      rightIcon={<LinkToCode />}
+      rightIcon={
+        <IconButton
+          href="https://github.com/maxobaxo/dad-helper-alt"
+          icon={<GithubIcon />}
+          target="_blank"
+          inverse
+        />
+      }
+      onRightIconClick={() => {
+        window.location = "https://github.com/maxobaxo/dad-helper-alt";
+      }}
       className={styles.header}
     />
   );
