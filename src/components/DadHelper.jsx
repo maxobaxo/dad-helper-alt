@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import AgeFormControl from "./AgeFormControl";
 import { connect } from "react-redux";
 import { Card, CardTitle, CardText } from "react-toolbox/lib/card";
+import AgeFormControl from "./AgeFormControl";
 import { getGames } from "./../actions/games";
 
 class DadHelper extends Component {

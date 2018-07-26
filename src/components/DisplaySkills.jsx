@@ -1,8 +1,7 @@
 import React from "react";
 import { func, array } from "prop-types";
+import { Card, CardTitle } from "react-toolbox/lib/card";
 import { Button } from "react-toolbox/lib/button";
-import { Card, CardTitle, CardMedia } from "react-toolbox/lib/card";
-
 import SkillCheckbox from "./SkillCheckbox";
 
 const propTypes = {
@@ -16,12 +15,6 @@ const DisplaySkills = ({
   handleFormSubmit,
   babySkills
 }) => {
-  const submitButton = (
-    <Button bsStyle="success" bsSize="xs" type="submit">
-      Submit
-    </Button>
-  );
-
   return (
     <div style={{ marginTop: "25px", marginBottom: "25px" }}>
       <Card>
