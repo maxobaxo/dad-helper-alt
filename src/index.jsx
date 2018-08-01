@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
 import reducer from "./reducers";
+import "regenerator-runtime/runtime";
 
 const loggerMiddleware = createLogger();
 

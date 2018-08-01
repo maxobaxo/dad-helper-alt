@@ -1,8 +1,8 @@
 import React from "react";
+import { func, array } from "prop-types";
 import AgeForm from "./AgeForm";
 import DisplaySkills from "./DisplaySkills";
 import DisplayGames from "./DisplayGames";
-import { func, array } from "prop-types";
 
 const propTypes = {
   handleFormSubmit: func.isRequired,
