@@ -1,6 +1,5 @@
 import React from "react";
 import { string } from "prop-types";
-import { Accordion, Panel } from "react-bootstrap";
 
 const propTypes = {
   name: string.isRequired,
@@ -12,12 +11,9 @@ const propTypes = {
 const Game = ({ name, description, bonus }) => {
   return name ? (
     <div>
-      <Accordion>
-        <Panel header={name} bsStyle="success">
-          <p>{description}</p>
-          <p>Extra Fun: {bonus}</p>
-        </Panel>
-      </Accordion>
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <p>Extra Fun: {bonus}</p>
     </div>
   ) : null;
 };

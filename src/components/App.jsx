@@ -1,16 +1,17 @@
-import React from 'react';
-import Header from './Header';
-import DadHelper from './DadHelper';
-import styles from './../styles/App.css';
+import React from "react";
+import Header from "./Header";
+import { hot } from "react-hot-loader";
+
+import DadHelper from "./DadHelper";
+import "./../styles/App.css";
 
 function App() {
-
-  return(
-    <div className={styles.app}>
+  return (
+    <div>
       <Header />
       <DadHelper />
     </div>
-  )
+  );
 }
 
-export default App;
+export default hot(module)(App);

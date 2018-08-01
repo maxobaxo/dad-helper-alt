@@ -1,16 +1,21 @@
-import React from "react";
-import { Accordion, Panel, Button } from "react-bootstrap";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { func } from "prop-types";
+import { Card, CardTitle, CardMedia } from "react-toolbox/lib/card";
+import { Button } from "react-toolbox/lib/button";
 import { getBabySkills } from "./../actions/age";
+import styles from "./../styles/AgeForm.css";
+import zeroToFour from "../static/ZeroToFour.jpg";
+import fiveToEight from "../static/FiveToEight.jpg";
+import nineToTwelve from "../static/NineToTwelve.jpg";
 
 const propTypes = {
   hideAgeForm: func.isRequired
 };
 
-class AgeForm extends React.Component {
+class AgeForm extends Component {
   state = {
-    value: ""
+    value: "ZeroToFour"
   };
 
   handleChange = event => {
@@ -25,37 +30,73 @@ class AgeForm extends React.Component {
   };
 
   render() {
-    const submitButton = (
-      <Button bsStyle="success" bsSize="xs" type="submit">
-        Submit
-      </Button>
-    );
-
     return (
-      <div>
-        <form onSubmit={this.handleAgeSubmit}>
-          <Accordion>
-            <Panel
-              bsStyle="success"
-              header="How old is your little one currently?"
-              footer={submitButton}
+      <div style={{ marginTop: "25px", marginBottom: "25px" }}>
+        <Card>
+          <CardTitle title="How old is your little one currently?" />
+          <form onSubmit={this.handleAgeSubmit}>
+            <div className={styles.container}>
+              <label>
+                <input
+                  type="radio"
+                  name="age"
+                  value="ZeroToFour"
+                  onChange={this.handleChange}
+                />
+                <div className={styles.card}>
+                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                    <CardMedia aspectRatio="wide" image={zeroToFour} />
+                    <CardTitle
+                      className={styles.cardTitle}
+                      title="0 - 4 Months"
+                    />
+                  </Card>
+                </div>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="age"
+                  value="FiveToEight"
+                  onChange={this.handleChange}
+                />
+                <div className={styles.card}>
+                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                    <CardMedia aspectRatio="wide" image={fiveToEight} />
+                    <CardTitle
+                      className={styles.cardTitle}
+                      title="5 - 8 Months"
+                    />
+                  </Card>
+                </div>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="age"
+                  value="NineToTwelve"
+                  onChange={this.handleChange}
+                />
+                <div className={styles.card}>
+                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                    <CardMedia aspectRatio="wide" image={nineToTwelve} />
+                    <CardTitle
+                      className={styles.cardTitle}
+                      title="9 - 12 Months"
+                    />
+                  </Card>
+                </div>
+              </label>
+            </div>
+            <Button
+              style={{ marginTop: "25px", marginLeft: "25px" }}
+              type="submit"
+              raised
             >
-              <select
-                name="age"
-                value={this.state.value}
-                onChange={this.handleChange}
-                required
-              >
-                <option value="" disabled>
-                  Select an Age Range
-                </option>
-                <option value="ZeroToFour">0 - 4 Months</option>
-                <option value="FiveToEight">5 - 8 Months</option>
-                <option value="NineToTwelve">9 - 12 Months</option>
-              </select>
-            </Panel>
-          </Accordion>
-        </form>
+              Submit
+            </Button>
+          </form>
+        </Card>
       </div>
     );
   }
