@@ -5,7 +5,7 @@ import { hot } from "react-hot-loader";
 import DadHelper from "./DadHelper";
 import "./../styles/App.css";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Header />
