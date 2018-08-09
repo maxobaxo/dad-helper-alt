@@ -31,7 +31,7 @@ class AgeForm extends Component {
 
   render() {
     return (
-      <div style={{ marginTop: "25px", marginBottom: "25px" }}>
+      <div className={styles.page}>
         <Card>
           <CardTitle title="How old is your little one currently?" />
           <form onSubmit={this.handleAgeSubmit}>
@@ -44,7 +44,7 @@ class AgeForm extends Component {
                   onChange={this.handleChange}
                 />
                 <div className={styles.card}>
-                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                  <Card className={styles.cardFrame}>
                     <CardMedia aspectRatio="wide" image={zeroToFour} />
                     <CardTitle
                       className={styles.cardTitle}
@@ -61,7 +61,7 @@ class AgeForm extends Component {
                   onChange={this.handleChange}
                 />
                 <div className={styles.card}>
-                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                  <Card className={styles.cardFrame}>
                     <CardMedia aspectRatio="wide" image={fiveToEight} />
                     <CardTitle
                       className={styles.cardTitle}
@@ -78,7 +78,7 @@ class AgeForm extends Component {
                   onChange={this.handleChange}
                 />
                 <div className={styles.card}>
-                  <Card className={styles.cardFrame} style={{ width: "350px" }}>
+                  <Card className={styles.cardFrame}>
                     <CardMedia aspectRatio="wide" image={nineToTwelve} />
                     <CardTitle
                       className={styles.cardTitle}
@@ -88,11 +88,7 @@ class AgeForm extends Component {
                 </div>
               </label>
             </div>
-            <Button
-              style={{ marginTop: "25px", marginLeft: "25px" }}
-              type="submit"
-              raised
-            >
+            <Button className={styles.button} type="submit" raised>
               Submit
             </Button>
           </form>

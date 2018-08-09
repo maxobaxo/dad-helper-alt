@@ -14,10 +14,6 @@ label > input + .card {
   transition: all ease-in-out 0.3s;
 }
 
-/* label > input + .card > .cardFrame > .cardTitle {
-  text-decoration: inherit;
-} */
-
 label > input:hover + .card {
   /* IMAGE STYLES */
   text-decoration: underline;
@@ -28,14 +24,18 @@ label > input:checked + .card {
   box-shadow: 0 0 3px 3px #303f9f;
 }
 
+.button {
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
 .card {
   display: "inline-block";
-  width: "350px";
   border-radius: 3px;
 }
 
-.option {
-  margin: 10px;
+.cardFrame {
+  width: 350px;
 }
 
 .container {
@@ -45,4 +45,13 @@ label > input:checked + .card {
   justify-content: space-around;
   z-index: "1100";
   width: "100%";
+}
+
+.option {
+  margin: 10px;
+}
+
+.page {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
