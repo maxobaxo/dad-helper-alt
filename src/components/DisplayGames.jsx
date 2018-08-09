@@ -26,13 +26,12 @@ class DisplayGames extends Component {
           <Tabs index={this.state.index} onChange={this.handleTabChange} fixed>
             {gamesToPlay.length > 0 ? (
               gamesToPlay.map(game => (
-                <Tab label={game.name}>
+                <Tab label={game.name} key={game._id}>
                   <Game
                     name={game.name}
                     description={game.description}
                     bonus={game.bonus}
                     id={game._id}
-                    key={game._id}
                   />
                 </Tab>
               ))
