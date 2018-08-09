@@ -13,7 +13,7 @@ export const receiveBabySkills = potentialSkills => ({
   potentialSkills
 });
 
-export const getBabySkills = (age_range, dispatch) => {
+export const getBabySkills = age_range => {
   const localBabyId = v4();
   return dispatch => {
     dispatch(requestBabySkills(age_range, localBabyId));

@@ -1,6 +1,5 @@
 import * as types from "./../constants/ActionTypes";
 import fetch from "isomorphic-fetch";
-import { v4 } from "uuid";
 
 export const requestGames = selectedSkills => ({
   type: types.REQUEST_GAMES,
@@ -12,8 +11,8 @@ export const receiveGames = relevantGames => ({
   relevantGames
 });
 
-export function getGames(selectedSkills, dispatch) {
-  return function(dispatch) {
+export const getGames = selectedSkills => {
+  return dispatch => {
     dispatch(requestGames(selectedSkills));
     let gameIdsFromSkills = [];
     return fetch("https://floating-basin-62498.herokuapp.com/games")
@@ -21,7 +20,7 @@ export function getGames(selectedSkills, dispatch) {
         response => response.json(),
         error => console.log("An error occured.", error)
       )
-      .then(function(all_games) {
+      .then(all_games => {
         let games = [];
         selectedSkills.forEach(skill => {
           if (skill.gameIds) {
@@ -42,4 +41,4 @@ export function getGames(selectedSkills, dispatch) {
         dispatch(receiveGames(games));
       });
   };
-}
+};
