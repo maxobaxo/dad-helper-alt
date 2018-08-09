@@ -3,6 +3,7 @@ import { func, array } from "prop-types";
 import { Card, CardTitle } from "react-toolbox/lib/card";
 import { Button } from "react-toolbox/lib/button";
 import SkillCheckbox from "./SkillCheckbox";
+import styles from "./../styles/DisplaySkills.css";
 
 const propTypes = {
   handleCheckboxChange: func.isRequired,
@@ -16,7 +17,7 @@ const DisplaySkills = ({
   babySkills
 }) => {
   return (
-    <div style={{ marginTop: "25px", marginBottom: "25px" }}>
+    <div className={styles.page}>
       <Card>
         <CardTitle title="Which of these skills has your baby mastered?" />
         <form onSubmit={handleFormSubmit}>
@@ -29,11 +30,7 @@ const DisplaySkills = ({
               key={index}
             />
           ))}
-          <Button
-            style={{ marginTop: "25px", marginLeft: "25px" }}
-            type="submit"
-            raised
-          >
+          <Button className={styles.page} type="submit" raised>
             Submit
           </Button>
         </form>

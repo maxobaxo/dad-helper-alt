@@ -3,6 +3,7 @@ import { array } from "prop-types";
 import { Tab, Tabs } from "react-toolbox/lib/tabs";
 import { Card, CardTitle } from "react-toolbox/lib/card";
 import Game from "./Game";
+import styles from "./../styles/DisplayGames.css";
 
 const propTypes = {
   gamesToPlay: array.isRequired
@@ -22,7 +23,7 @@ class DisplayGames extends Component {
     return (
       <Card>
         <CardTitle title="Games to Play!" />
-        <div style={{ paddingLeft: "25px", paddingRight: "25px" }}>
+        <div className={styles.cardContent}>
           <Tabs index={this.state.index} onChange={this.handleTabChange} fixed>
             {gamesToPlay.length > 0 ? (
               gamesToPlay.map(game => (

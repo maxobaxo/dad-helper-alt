@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Card, CardTitle, CardText } from "react-toolbox/lib/card";
 import AgeFormControl from "./AgeFormControl";
 import { getGames } from "./../actions/games";
+import styles from "./../styles/DadHelper.css";
 
 class DadHelper extends Component {
   state = {
@@ -46,7 +47,7 @@ class DadHelper extends Component {
 
   render() {
     return (
-      <div style={{ margin: "25px 5%"}}>
+      <div className={styles.page}>
         <Card>
           <CardTitle title="Are you a new parent?" />
           <CardText>

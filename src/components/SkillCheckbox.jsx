@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { object, string, func } from "prop-types";
 import { Checkbox } from "react-toolbox/lib/checkbox";
+import styles from "./../styles/SkillCheckbox.css";
 
 class SkillCheckbox extends Component {
   static propTypes = {
@@ -25,7 +26,7 @@ class SkillCheckbox extends Component {
     const { isChecked } = this.state;
 
     return (
-      <div style={{ paddingLeft: "20px" }}>
+      <div className={styles.page}>
         <Checkbox
           value={skillId}
           checked={isChecked}
